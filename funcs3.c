@@ -84,3 +84,30 @@ void print_string_stack(stack_t **stack,
 	}
 	printf("\n");
 }
+
+/**
+ * rotate_top_stack - Rotates the stack so the top element becomes the last
+ * and the second top becomes the first
+ * @stack: Pointer to a pointer to the stack
+ * @line_number: The line number that the current opcode is on
+ *
+ * Return: void
+ */
+void rotate_top_stack(stack_t **stack,
+		      __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *top = get_dnodeint_at_index(*stack, 0);
+
+	if (top != NULL)
+	{
+		int top_n = top->n;
+		stack_t *ptr = top;
+
+		while (ptr->next)
+		{
+			ptr->n = ptr->next->n;
+			ptr->next->n = top_n;
+			ptr = ptr->next;
+		}
+	}
+}
