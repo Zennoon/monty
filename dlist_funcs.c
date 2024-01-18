@@ -16,12 +16,12 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 		malloc_error();
 	}
 	new_node->n = n;
-       	new_node->prev = NULL;
-       	new_node->next = *head;
-       	if (*head)
-       		(*head)->prev = new_node;
+	new_node->prev = NULL;
+	new_node->next = *head;
+	if (*head)
+		(*head)->prev = new_node;
 	*head = new_node;
-       	return (new_node);
+	return (new_node);
 }
 
 /**

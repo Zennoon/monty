@@ -11,14 +11,16 @@ char **lines = NULL;
  */
 int main(int ac, char **av)
 {
+	char *buffer;
+	size_t line_count = 0;
+	stack_t *stack = NULL;
+
 	if (ac != 2)
 	{
-		dprintf(2, "USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	char *buffer = read_file_content(av[1]);
-	size_t line_count = 0, i;
-	stack_t *stack = NULL;
+	buffer = read_file_content(av[1]);
 	lines = parse_lines(buffer, &line_count);
 	execute_lines(lines, line_count, &stack);
 	free_arr(lines);

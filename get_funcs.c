@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * get_func - Returs the appropriate function to handle an opcode
+ * @opcode: The opcode which is handled
+ *
+ * Return: The function to hanle the opcode, or NULL if opcode is invalid
+ */
 void (*get_func(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t instructs[] = {
@@ -22,7 +28,14 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 	return (func);
 }
 
-
+/**
+ * execute_lines - Executes the lines of the monty file
+ * @lines: The lines in the file
+ * @line_count: The number of lines in the file
+ * @stack: The stack used to execute the opcodes in the file
+ *
+ * Return: void
+ */
 void execute_lines(char **lines, unsigned int line_count, stack_t **stack)
 {
 	size_t i;
@@ -35,7 +48,7 @@ void execute_lines(char **lines, unsigned int line_count, stack_t **stack)
 		func = get_func(command[0]);
 		if (func == NULL)
 		{
-			dprintf(2, "L%lu: unknown instruction %s\n",
+			fprintf(stderr, "L%lu: unknown instruction %s\n",
 				i + 1, command[0]);
 			free_arr(command);
 			free_arr(lines);

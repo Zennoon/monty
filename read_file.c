@@ -12,7 +12,7 @@ void check_fd(int fd, char *filename)
 {
 	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -34,14 +34,14 @@ char *read_file_content(char *filename)
 	if (fstat(fd, &filestat) == -1)
 	{
 		close(fd);
-		dprintf(2, "Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	buffer = malloc(filestat.st_size + 1);
 	if (buffer == NULL)
 	{
 		close(fd);
-		dprintf(2, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	while ((long int) total_bytes_read < filestat.st_size)
@@ -53,7 +53,8 @@ char *read_file_content(char *filename)
 		{
 			free(buffer);
 			close(fd);
-			dprintf(2, "Error: Can't open file %s\n", filename);
+			fprintf(stderr, "Error: Can't open file %s\n",
+				filename);
 			return (NULL);
 		}
 		total_bytes_read += new_read_bytes;
@@ -83,26 +84,3 @@ char **parse_lines(char *buffer, size_t *line_count)
 	free(buffer);
 	return (parsed_lines);
 }
-/**
- * execute_from_file - executes command from file line by line
- * @av: argument vector
- * @ev: env
- *
- * Return: execution statis
- */
-/**int read_file(char **av, char **ev)
-{
-	size_t line_count = 0;
-	char *buffer;
-	char **lines;
-	int i, status = 0;
-
-	buffer = read_file_content(av[1]);
-	if (!buffer)
-	{
-		return (0);
-	}
-	lines = parse_lines(buffer, &line_count);
-	return (0);
-}
-**/

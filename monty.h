@@ -69,7 +69,7 @@ void do_nothing(stack_t **, unsigned int);
 stack_t *add_dnodeint(stack_t **, const int);
 stack_t *get_dnodeint_at_index(stack_t *, unsigned int);
 size_t dlistint_len(const stack_t *);
-int delete_node_at_index(stack_t **, unsigned int);
+int delete_dnodeint_at_index(stack_t **, unsigned int);
 size_t print_dlistint(const stack_t *);
 void free_dlistint(stack_t *);
 #endif

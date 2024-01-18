@@ -75,39 +75,3 @@ void free_arr(char **arr)
 	}
 	free(arr);
 }
-
-/**
- * free_strs - Frees memory allocated for a variable number of strings
- * @n: The number of memory areas to free
- *
- * Return: void
- */
-/**
-void free_strs(int n, ...)
-{
-	int i = 0;
-	va_list ap;
-	char *str;
-
-	va_start(ap, n);
-	while (i < n)
-	{
-		str = va_arg(ap, char *);
-		free(str);
-		i++;
-	}
-}
-**/
-/**
- * free_if_malloced - Frees the command path used to execute a command if it
- * has been malloced
- * @c_path: The command path
- * @arg: The actual command retrieved from stdin
- *
- * Return: void
- */
-void free_if_malloced(char *c_path, char *arg)
-{
-	if (_strchr(arg, '/') == NULL)
-		free(c_path);
-}
