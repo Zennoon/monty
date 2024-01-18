@@ -76,7 +76,8 @@ void print_string_stack(stack_t **stack,
 {
 	stack_t *ptr = *stack;
 
-	while (ptr && ptr->n && isprint(ptr->n))
+	while (ptr && ptr->n && ((ptr->n > 31 && ptr->n < 127) ||
+				 (ptr->n > 7 && ptr->n < 12)))
 	{
 		printf("%c", ptr->n);
 		ptr = ptr->next;
