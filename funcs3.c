@@ -55,7 +55,7 @@ void print_char_top_stack(stack_t **stack, unsigned int line_number)
 	if (top->n < 0 || top->n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n",
-			line_number);
+			line_number + 1);
 		free_dlistint(*stack);
 		free_arr(lines);
 		exit(EXIT_FAILURE);
