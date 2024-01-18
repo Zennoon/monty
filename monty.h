@@ -70,6 +70,7 @@ void div_top_stack(stack_t **, unsigned int);
 void mul_top_stack(stack_t **, unsigned int);
 void mod_top_stack(stack_t **, unsigned int);
 void print_char_top_stack(stack_t **, unsigned int);
+void print_string_stack(stack_t **, unsigned int);
 
 /** Doubly linked list Functions **/
 stack_t *add_dnodeint(stack_t **, const int);

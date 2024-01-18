@@ -60,5 +60,26 @@ void print_char_top_stack(stack_t **stack, unsigned int line_number)
 		free_arr(lines);
 		exit(EXIT_FAILURE);
 	}
-       	printf("%c\n", top->n);
+	printf("%c\n", top->n);
+}
+
+/**
+ * print_string_stack - Prints the values held in the stack as a collective
+ * string
+ * @stack: Pointer to a pointer to the stack
+ * @line_number: The line number that the current opcode is on
+ *
+ * Return: void
+ */
+void print_string_stack(stack_t **stack,
+			__attribute__((unused))unsigned int line_number)
+{
+	stack_t *ptr = *stack;
+
+	while (ptr && ptr->n && isprint(ptr->n))
+	{
+		printf("%c", ptr->n);
+		ptr = ptr->next;
+	}
+	printf("\n");
 }
