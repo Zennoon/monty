@@ -78,7 +78,7 @@ void div_top_stack(stack_t **stack, unsigned int line_number)
 
 	if (top == NULL || next == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n",
+		fprintf(stderr, "L%d: can't div, stack too short\n",
 			line_number + 1);
 		free_dlistint(*stack);
 		free_arr(lines);
@@ -92,5 +92,30 @@ void div_top_stack(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(next->n) /= top->n;
+	delete_dnodeint_at_index(stack, 0);
+}
+
+/**
+ * mul_top_stack - Handles the mul opcode, muls the values held in the two top
+ * elements of the stack, pops the top, and stores the product in the new top
+ * @stack: Pointer to a pointer to the stack
+ * @line_number: The line number that the current opcode is on
+ *
+ * Return: void
+ */
+void mul_top_stack(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top = get_dnodeint_at_index(*stack, 0);
+	stack_t *next = get_dnodeint_at_index(*stack, 1);
+
+	if (top == NULL || next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n",
+			line_number + 1);
+		free_dlistint(*stack);
+		free_arr(lines);
+		exit(EXIT_FAILURE);
+	}
+	(next->n) *= top->n;
 	delete_dnodeint_at_index(stack, 0);
 }
