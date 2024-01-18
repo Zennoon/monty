@@ -1,3 +1,3 @@
 pall
-rotl
+rotr
 pall

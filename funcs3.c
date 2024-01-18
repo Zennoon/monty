@@ -111,3 +111,31 @@ void rotate_top_stack(stack_t **stack,
 		}
 	}
 }
+
+/**
+ * rotate_bottom_stack - Rotates the stack so the bottom element of the stack
+ * becomes the top and the second bottom element becomes the bottom
+ * @stack: Pointer to a pointer to the stack
+ *
+ * Return: void
+ */
+void rotate_bottom_stack(stack_t **stack,
+			 __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *bottom = get_dnodeint_at_index(*stack, 0);
+
+	while (bottom && bottom->next)
+		bottom = bottom->next;
+	if (bottom != NULL)
+	{
+		int bottom_n = bottom->n;
+		stack_t *ptr = bottom;
+
+		while (ptr->prev)
+		{
+			ptr->n = ptr->prev->n;
+			ptr->prev->n = bottom_n;
+			ptr = ptr->prev;
+		}
+	}
+}
