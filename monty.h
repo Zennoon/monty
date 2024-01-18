@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <stdarg.h>
 #include <sys/stat.h>
+#include <ctype.h>
 
 /** Global Variables **/
 extern char **lines;

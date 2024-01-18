@@ -60,5 +60,6 @@ void print_char_top_stack(stack_t **stack, unsigned int line_number)
 		free_arr(lines);
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", top->n);
+	if (isprint(top->n))
+		printf("%c\n", top->n);
 }
