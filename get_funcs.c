@@ -19,12 +19,13 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 		{"sub", sub_top_stack},
 		{"div", div_top_stack},
 		{"mul", mul_top_stack},
-		{"mod", mod_top_stack}
+		{"mod", mod_top_stack},
+		{"pchar", print_char_top_stack}
 	};
 	void (*func)(stack_t **, unsigned int) = NULL;
 	int i;
 
-	for (i = 0; i < 11; i++)
+	for (i = 0; i < 12; i++)
 	{
 		if (!_strcmp(opcode, instructs[i].opcode))
 			func = instructs[i].f;
