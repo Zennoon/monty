@@ -16,12 +16,13 @@ void (*get_func(char *opcode))(stack_t **, unsigned int)
 		{"swap", swap_top_stack},
 		{"add", add_top_stack},
 		{"nop", do_nothing},
-		{"sub", sub_top_stack}
+		{"sub", sub_top_stack},
+		{"div", div_top_stack}
 	};
 	void (*func)(stack_t **, unsigned int) = NULL;
 	int i;
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 9; i++)
 	{
 		if (!_strcmp(opcode, instructs[i].opcode))
 			func = instructs[i].f;
