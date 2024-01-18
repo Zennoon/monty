@@ -49,6 +49,11 @@ void execute_lines(char **lines, unsigned int line_count, stack_t **stack)
 	{
 		char **command = _strtok(lines[i], " \0");
 
+		if (command[0] == NULL || command[0][0] == '#')
+		{
+			free_arr(command);
+			continue;
+		}
 		func = get_func(command[0]);
 		if (func == NULL)
 		{
