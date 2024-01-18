@@ -6,7 +6,7 @@ void push_to_stack(stack_t **stack, unsigned int line_number)
 
 	if (command[1] == NULL || !is_integer(command[1]))
 	{
-		dprintf(2, "L%d: usage: push integer\n", line_number);
+		dprintf(2, "L%d: usage: push integer\n", line_number + 1);
 		free_dlistint(*stack);
 		free_arr(lines);
 		free_arr(command);

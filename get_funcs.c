@@ -33,14 +33,16 @@ void execute_lines(char **lines, unsigned int line_count, stack_t **stack)
 		char **command = _strtok(lines[i], " \0");
 
 		func = get_func(command[0]);
-		free_arr(command);
 		if (func == NULL)
 		{
 			dprintf(2, "L%lu: unknown instruction %s\n",
 				i + 1, command[0]);
+			free_arr(command);
 			free_arr(lines);
+			free_dlistint(*stack);
 			exit(EXIT_FAILURE);
 		}
+		free_arr(command);
 		func(stack, i);
 	}
 }
