@@ -64,6 +64,7 @@ void print_all_stack(stack_t **, unsigned int);
 void swap_top_stack(stack_t **, unsigned int);
 void add_top_stack(stack_t **, unsigned int);
 void do_nothing(stack_t **, unsigned int);
+void sub_top_stack(stack_t **, unsigned int);
 
 /** Doubly linked list Functions **/
 stack_t *add_dnodeint(stack_t **, const int);
