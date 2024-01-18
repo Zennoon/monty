@@ -52,7 +52,7 @@ void print_char_top_stack(stack_t **stack, unsigned int line_number)
 		free_arr(lines);
 		exit(EXIT_FAILURE);
 	}
-	if (top->n < 0 || top->n > 127 || !isprint(top->n))
+	if (top->n < 32 || top->n > 126)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n",
 			line_number + 1);
