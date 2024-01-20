@@ -8,10 +8,16 @@
  */
 int is_integer(char *str)
 {
-	while (str && *str)
+	int i = 0;
+
+	while (str[i])
 	{
-		if (*str < 48 || *str > 57)
+		if (str[i] < 48 || str[i] > 57)
+		{
+			if (!(str[i] == '-' && i == 0 && (str[i + 1] >= 48 &&
+				      str[i + 1] <= 57)))
 			return (0);
+		}
 		str++;
 	}
 	return (1);

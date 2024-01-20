@@ -1,1 +1,2 @@
-push a2
+push -2
+pall
