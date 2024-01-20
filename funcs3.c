@@ -116,6 +116,7 @@ void rotate_top_stack(stack_t **stack,
  * rotate_bottom_stack - Rotates the stack so the bottom element of the stack
  * becomes the top and the second bottom element becomes the bottom
  * @stack: Pointer to a pointer to the stack
+ * @line_number: The line number that the current opcode is on
  *
  * Return: void
  */
